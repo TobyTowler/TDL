@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="toby.tdl.GUIController">
    <GridPane layoutY="30.0" prefHeight="770.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
@@ -14,11 +15,41 @@
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-         <ListView id="topListBox" fx:id="completed" editable="true" prefHeight="290.0" prefWidth="800.0" />
-         <ListView prefHeight="299.0" prefWidth="688.0" GridPane.rowIndex="2" />
-      
-         <ListView id="bottomListBox" fx:id="bottomList" editable="true" prefHeight="202.0" prefWidth="400" GridPane.rowIndex="1" />
+         <ListView id="completedBox" fx:id="completedBox" editable="true" prefHeight="290.0" prefWidth="800.0">
+            <contextMenu>
+               <ContextMenu>
+                 <items>
+                   <MenuItem mnemonicParsing="false" text="Move to working" />
+                   <MenuItem mnemonicParsing="false" text="Move to incomplete" />
+                 </items>
+               </ContextMenu>
+            </contextMenu></ListView>
+         <ListView id="topListBox" fx:id="workingBox" editable="true" layoutX="10.0" layoutY="10.0" prefHeight="290.0" prefWidth="800.0" GridPane.rowIndex="1">
+            <contextMenu>
+               <ContextMenu>
+                  <items>
+                   <MenuItem mnemonicParsing="false" text="Move to complete" />
+                   <MenuItem mnemonicParsing="false" text="Move to incomplete" />
+                  </items>
+               </ContextMenu>
+            </contextMenu>
+         </ListView>
+         <ListView id="topListBox" fx:id="incompletedBox" editable="true" layoutX="10.0" layoutY="10.0" prefHeight="290.0" prefWidth="800.0" GridPane.rowIndex="2">
+            <contextMenu>
+               <ContextMenu>
+                  <items>
+                   <MenuItem mnemonicParsing="false" text="Move to complete" />
+                   <MenuItem mnemonicParsing="false" text="Move to working" />
+                  </items>
+               </ContextMenu>
+            </contextMenu>
+         </ListView>
       </children>
    </GridPane>
+   <Label layoutX="6.0" layoutY="9.0" prefHeight="33.0" prefWidth="126.0" text="Completed">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
 
 </AnchorPane>

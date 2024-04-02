@@ -12,14 +12,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import eu.hansolo.tilesfx.skins.WorldMapTileSkin;
-
 public class GUIController extends Application {
 
     @FXML
-    public ListView<ListItem> topList;
+    public ListView<ListItem> completedBox;
     @FXML
-    private ListView<ListItem> bottomList;
+    private ListView<ListItem> workingBox;
+    @FXML
+    private ListView<ListItem> incompleteBox;
 
     private ContextMenu completedList = new ContextMenu();
     private ContextMenu workingList = new ContextMenu();
@@ -60,6 +60,8 @@ public class GUIController extends Application {
 
         incompletedList.getItems().add(moveToWorking);
         incompletedList.getItems().add(moveToCompleted);
+
+       // completedBox.setContextMenu(completedList);
 
     }
 
